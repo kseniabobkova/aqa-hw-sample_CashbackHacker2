@@ -4,6 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.jupiter.api.Assertions;
+
+
+import static org.junit.jupiter.api.Assertions.*;
+
 public class CashbackHackServiceTest {
 
     CashbackHackService service;
@@ -55,4 +60,46 @@ public class CashbackHackServiceTest {
         assertEquals(expected, actual);
     }
 
+    @org.junit.jupiter.api.Test
+
+    public void shouldReturn500IfAmountIs500_1() {
+
+        int amount = 500;
+
+        int actual = service.remain(amount);
+        int expected = 500;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @org.junit.jupiter.api.Test
+    public void shouldReturn0IfAmountIs1000_1() {
+        int amount = 1000;
+
+        int actual = service.remain(amount);
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void shouldReturn999IfAmountIs1_1() {
+        int amount = 1;
+
+        int actual = service.remain(amount);
+        int expected = 999;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void shouldReturn0IfAmountIs2000_1() {
+        int amount = 2000;
+
+        int actual = service.remain(amount);
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
