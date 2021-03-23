@@ -1,53 +1,57 @@
 package ru.netology.service;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.testng.AssertJUnit.assertEquals;
 
-class CashbackHackServiceTest {
+public class CashbackHackServiceTest {
+
+    CashbackHackService service;
+
+    {
+        service = new CashbackHackService();
+    }
 
     @Test
-    void shouldReturn500IfAmountIs500() {
-        CashbackHackService service = new CashbackHackService();
+
+    public void shouldReturn500IfAmountIs500() {
+
         int amount = 500;
 
         int actual = service.remain(amount);
         int expected = 500;
 
-        assertEquals(expected, actual);
+        assertEquals(actual, expected);
     }
 
 
     @Test
-    void shouldReturn0IfAmountIs1000() {
-        CashbackHackService service = new CashbackHackService();
+    public void shouldReturn0IfAmountIs1000() {
         int amount = 1000;
 
         int actual = service.remain(amount);
         int expected = 0;
 
-        assertEquals(expected, actual);
+        assertEquals(actual, expected);
     }
 
     @Test
-    void shouldReturn100IfAmountIs1() {
-        CashbackHackService service = new CashbackHackService();
+    public void shouldReturn100IfAmountIs1() {
         int amount = 1;
 
         int actual = service.remain(amount);
         int expected = 999;
 
-        assertEquals(expected, actual);
+        assertEquals(actual, expected);
     }
 
     @Test
-    void shouldReturn0IfAmountIs2000() {
-        CashbackHackService service = new CashbackHackService();
+    public void shouldReturn0IfAmountIs2000() {
         int amount = 2000;
 
         int actual = service.remain(amount);
         int expected = 0;
 
-        assertEquals(expected, actual);
+        assertEquals(actual, expected);
     }
 }
